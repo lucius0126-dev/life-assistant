@@ -41,9 +41,13 @@ node verify-logic.mjs
 | `sw.js` | 離線快取；**更新網站時把 `CACHE` 版本號 +1** |
 | `manifest.webmanifest`、`icon*` | 加到主畫面用的名稱與圖示 |
 
-## 上線（之後）
+## 上線
 
-和拾色一樣放 GitHub Pages，例如 `life.bidezato.com`。程式碼公開沒關係，個人資料不在程式碼裡，只在各自裝置的瀏覽器中。手機要用 HTTPS 網址才能安裝成 App。
+- 正式網址：https://life.bidezato.com/
+- GitHub：https://github.com/lucius0126-dev/life-assistant（GitHub Pages，從 `main` 分支根目錄發佈）
+- DNS：Cloudflare 的 bidezato.com（Bidezato 帳號）有一筆 CNAME `life` → `lucius0126-dev.github.io`，Proxy 關閉（僅 DNS）。
+
+更新網站：改完檔案後把 `sw.js` 的 `CACHE` 版本號 +1，再 `git commit` 和 `git push`，一兩分鐘後生效。程式碼公開沒關係，個人資料不在程式碼裡，只在各自裝置的瀏覽器中。
 
 ## 注意事項
 
