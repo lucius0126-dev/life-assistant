@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4f2eb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a201c" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="生活助理">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="個人生活助理：繳費提醒、信用卡回饋、做菜菜單與常用工具。資料只存在你的裝置上。">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./style.css">
+<title>生活助理</title>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="./icon.svg" alt="" width="28" height="28"> 生活助理</div>
+  <div class="today" id="today"></div>
+</header>
+
+<main id="view" tabindex="-1"></main>
+
+<nav class="tabbar" aria-label="主要分頁">
+  <button type="button" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg><span>首頁</span></button>
+  <button type="button" data-tab="bills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span>繳費</span></button>
+  <button type="button" data-tab="cards"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>信用卡</span></button>
+  <button type="button" data-tab="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M9 8c0-2 1-2 1-4M13 8c0-2 1-2 1-4"/></svg><span>菜單</span></button>
+  <button type="button" data-tab="tools"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg><span>工具</span></button>
+</nav>
+
+<dialog id="sheet" aria-labelledby="sheet-title">
+  <form id="sheet-form" novalidate>
+    <div class="sheet-head">
+      <h2 id="sheet-title"></h2>
+      <button type="button" class="icon-btn" data-act="closeSheet" aria-label="關閉">✕</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+    <p class="form-error" id="sheet-error" role="alert" hidden></p>
+    <div class="sheet-foot" id="sheet-foot"></div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden><span id="toast-text"></span><button type="button" id="toast-action" hidden></button></div>
+
+<noscript><p class="noscript">生活助理需要開啟 JavaScript 才能使用。</p></noscript>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
